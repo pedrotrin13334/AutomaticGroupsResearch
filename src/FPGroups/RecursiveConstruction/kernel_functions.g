@@ -14,7 +14,7 @@ end;;
 ## an optional parameter "max_iter" that defines how many iterations 
 ## to go through.
 GetNonTrivialKernelElem := function(g, h, hom, max_index, arg...)
-    local subgrp, iter, curr_iter, max_iter, elm_found;;
+    local subgrp, iter, curr_iter, max_iter, elm_found, test;;
 
     curr_iter := 0;;
 

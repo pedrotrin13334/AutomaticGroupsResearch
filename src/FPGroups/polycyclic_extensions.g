@@ -22,7 +22,8 @@ h_gens := GeneratorsOfGroup(h);;
 hom := GroupHomomorphismByImages(h, g, h_gens, [g.1, g.2, g.3]);
 
 Display("Non Trivial Kernel Element: ");;
-Display(GetNonTrivialKernelElem(h, g, hom, 10));;
+#Display(GetNonTrivialKernelElem(g, h, hom, 10));;
+Display(IsKernelTrivial(g, h, hom, 10));;
 
 
 #li := check_phi_kernel(g, h, hom, 10);
