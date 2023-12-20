@@ -19,7 +19,8 @@ Display(Index(g,h));
 
 h_gens := GeneratorsOfGroup(h);;
 
-hom := GroupHomomorphismByImages(h, g, h_gens, [g.1, g.2, g.3]);
+#hom := GroupHomomorphismByImages(h, g, h_gens, [g.1, g.2, g.3]);
+hom := GroupHomomorphismByImages(h, g, h_gens, [g.2, g.1^2]);
 
 Display("Non Trivial Kernel Element: ");;
 #Display(GetNonTrivialKernelElem(g, h, hom, 10));;

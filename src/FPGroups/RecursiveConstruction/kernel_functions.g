@@ -49,14 +49,14 @@ IsKernelTrivial := function(g, h, hom, max_index, arg...)
     local elm_found, max_iter;;
 
     if Length(arg) = 0 then 
-    elm_found := GetNonTrivialKernelElem(g, h, hom, max_index);; 
+        elm_found := GetNonTrivialKernelElem(g, h, hom, max_index);; 
     else 
-    max_iter := arg[1];;
-    elm_found := GetNonTrivialKernelElem(g, h, hom, max_index, max_iter);;
+        max_iter := arg[1];;
+        elm_found := GetNonTrivialKernelElem(g, h, hom, max_index, max_iter);;
     fi;
 
     if not (elm_found = fail) then
-        return true;; 
+        return false;; 
     else 
         return fail;;
     fi;
