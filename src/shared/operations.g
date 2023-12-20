@@ -1,0 +1,1 @@
+CommElm := elm -> elm[1]^-1 * elm[2]^-1 * elm[1] * elm[2];;
