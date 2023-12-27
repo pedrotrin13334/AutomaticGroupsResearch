@@ -11,7 +11,7 @@ comm := CommElm;;
 g := f/[comm([f.1, f.2]), comm([f.1, f.3]), (f.2^f.3)*f.2^-1 * f.1 ^-1 ];
 #g := f/[comm([f.1, f.2])];
 
-h := Group([g.1^2, g.2, g.3^2]);
+h := Group([g.1, g.2, g.3^2]);
 #h := Group([g.1^2, g.2]);
 
 Display("Index of the Subgroup H: ");
@@ -19,12 +19,17 @@ Display(Index(g,h));
 
 h_gens := GeneratorsOfGroup(h);;
 
-#hom := GroupHomomorphismByImages(h, g, h_gens, [g.1, g.2, g.3]);
-hom := GroupHomomorphismByImages(h, g, h_gens, [g.2, g.1^2]);
+id := Identity(g);;
 
-Display("Non Trivial Kernel Element: ");;
-#Display(GetNonTrivialKernelElem(g, h, hom, 10));;
-Display(IsKernelTrivial(g, h, hom, 10));;
+hom := GroupHomomorphismByImages(h, g, h_gens, [id, id, g.3]);
 
+Display("Non Trivial Kernel? ");;
 
-#li := check_phi_kernel(g, h, hom, 10);
+is_kernel_trivial := IsKernelTrivial(g, h, hom, 10);;
+
+Display(not (is_kernel_trivial = fail));;
+
+if is_kernel_trivial = false then 
+    Display("Non Trivial Kernel Element: ");;
+    Display(GetNonTrivialKernelElem(g, h, hom, 10));
+fi;
